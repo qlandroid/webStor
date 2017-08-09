@@ -10,12 +10,18 @@
     height: 60px;
     background-color: #393D49;
 }
+
 .layui-body {
     overflow: hidden;
     border-left: 2px solid #1AA094;
     border-top: 4px solid #1AA094;
 }
-.layui-this-none:after{
+.layui-tab-content{
+    position: absolute;
+    width: auto;
+    height: auto;
+}
+.layui-this-none:after {
     position: absolute;
     left: 0;
     top: 0;
@@ -32,9 +38,25 @@
     box-sizing: border-box !important;
     pointer-events: none
 }
-.layui-show{
+
+.iframe {
+    position: absolute;
+    right: 0;
+    top: 60px;
+    bottom: 0;
+    z-index: 998;
     width: 100%;
-    height:100%;
+    height: 100%;
+    overflow: hidden;
+    overflow-y: auto;
+    -webkit-box-sizing: border-box;
+    -moz-box-sizing: border-box;
+    box-sizing: border-box
+}
+
+.layui-show {
+    width: 100%;
+    height: 100%;
 }
 
 .layui-tab-title .layui-this {
