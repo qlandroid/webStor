@@ -8,8 +8,10 @@ layui.use('element', function () {
             //新增一个Tab项
             element.tabAdd('demo', {
                 title: '新选项' + (Math.random() * 1000 | 0) //用于演示
-                , content: "<IFRAME HEIGHT='31' WIDTH='88'></IFRAME>"
-                , id: new Date().getTime() //实际使用一般是规定好的id，这里以时间戳模拟下
+                ,
+                content: " <iframe src='../page/lottery_list.html' style='width: 100%;height: 100%;' frameborder='0'></iframe>"
+                ,
+                id: new Date().getTime() //实际使用一般是规定好的id，这里以时间戳模拟下
             })
         }
         , tabDelete: function (othis) {
@@ -39,3 +41,15 @@ layui.use('element', function () {
     });
 
 });
+function setIframeHeight(iframe) {
+    if (iframe) {
+        var iframeWin = iframe.contentWindow || iframe.contentDocument.parentWindow;
+        if (iframeWin.document.body) {
+            iframe.height = iframeWin.document.documentElement.scrollHeight || iframeWin.document.body.scrollHeight;
+        }
+    }
+};
+
+window.onload = function () {
+    setIframeHeight(document.getElementById('external-frame'));
+};

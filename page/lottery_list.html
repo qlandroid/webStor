@@ -11,7 +11,7 @@
 <div class="body-group">
     <div>
         <input type="text" class="layui-input fl">
-        <button class="layui-btn layui-btn-warm fl">查询</button>
+        <button class="layui-btn layui-btn-warm fl" id="btn_add_row">添加行</button>
         <button class="layui-btn layui-btn-normal fl">查询</button>
         <button class="layui-btn fl">查询</button>
     </div>
@@ -76,7 +76,25 @@
             </table>
         </div>
     </div>
+    <script type="text/javascript" src="../js/jquery-3.2.1.min.js"></script>
+    <script type="text/javascript" src="../layui/layui.js"></script>
+    <script type="text/javascript" src="../js/page/lottery_list.js"></script>
+    <!-- 注意：如果你直接复制所有代码到本地，上述js路径需要改成你本地的 -->
+    <script>
+        layui.use('form', function(){
+            var $ = layui.jquery, form = layui.form();
 
+            //全选
+            form.on('checkbox(allChoose)', function(data){
+                var child = $(data.elem).parents('table').find('tbody input[type="checkbox"]');
+                child.each(function(index, item){
+                    item.checked = data.elem.checked;
+                });
+                form.render('checkbox');
+            });
+
+        });
+    </script>
 </div>
 
 </body>
